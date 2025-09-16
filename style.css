@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    border-radius: 6px;
+    padding: 16px;
+
+    color: black;
+    background-color: red;
+}
+
+.book {
+    height: 28vh;
+    width: 18vw;
+
+    background-color: whitesmoke;
+
+}

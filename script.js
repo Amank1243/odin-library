@@ -1,5 +1,11 @@
 const MYLIBRARY = [];
 
+const BUTTON = document.getElementById("add-book")
+
+BUTTON.addEventListener("click", () => {
+    console.log("Button was clicked");
+});
+
 
 function Book(title, author, numberOfPages, haveRead) {
     this.title = title;
