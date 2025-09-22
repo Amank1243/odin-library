@@ -9,8 +9,9 @@ button {
     border-radius: 6px;
     padding: 16px;
 
-    color: black;
-    background-color: red;
+    color: #fafafa;
+    font-weight: bolder;
+    background-color: rgb(1, 69, 156);
 }
 
 .book {
