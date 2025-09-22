@@ -1,3 +1,7 @@
+body {
+    display: grid;
+}
+
 .container {
     display: flex;
 
@@ -14,10 +18,24 @@ button {
     background-color: rgb(1, 69, 156);
 }
 
-.book {
-    height: 28vh;
-    width: 18vw;
+.container-2 {
+    display: grid;
 
-    background-color: whitesmoke;
+    justify-self: center;
+    justify-content: space-evenly;
+
+    width: 94vw;
+    margin-top: 4vh;
+
+    background-color:#f19d00d8;
 
 }
+
+.book {
+    height: 46vh;
+    width: 28vw;
+
+    background-color: rgb(151, 0, 0);
+
+}
+

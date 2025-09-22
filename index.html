@@ -6,14 +6,31 @@
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <button id="add-book">Add Book</button>
     </div>
    <div class="container-2">
-       <div class="book"></div>
+        <dialog hidden>
+            <form action="index.html" method="dialog">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author">
 
-        <form action="index.html" class="modal"></form>
+                <label for="book">Book Name:</label>
+                <input type="text" name="book" id="book">
+
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages">
+
+                <label for="hasRead">Read?</label>
+                <select name="hasRead" id="hadRead">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                
+            </form>
+        </dialog>
    </div>
     <script src="script.js"></script>
 </body>
