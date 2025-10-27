@@ -12,8 +12,10 @@ const MYLIBRARY = [];
 
 const BUTTON = document.getElementById("add-book")
 const BOOKCONTAINER = document.querySelector(".container-2")
+const MODUAL = document.querySelector("dialog")
+
 BUTTON.addEventListener("click", () => {
-    console.log("Button was clicked");
+    MODUAL.showModal();
 });
 
 
@@ -31,7 +33,7 @@ function addBookToLibrary(title, author, numberOfPages, haveRead) {
     MYLIBRARY.push(newBook);
 }
 
-for(let i = 0; i <= MYLIBRARY.length; i++) {
+for (let i = 0; i < MYLIBRARY.length(); i++) {
     let book = document.createElement("div")
     book.className = "book ";
     BOOKCONTAINER.appendChild(book);
