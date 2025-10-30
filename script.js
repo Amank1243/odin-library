@@ -10,14 +10,10 @@ Features:
 
 const MYLIBRARY = [];
 
-const BUTTON = document.getElementById("add-book")
-const BOOKCONTAINER = document.querySelector(".container-2")
-const MODUAL = document.querySelector("dialog")
-
-BUTTON.addEventListener("click", () => {
-    MODUAL.showModal();
-});
-
+const BUTTON = document.getElementById("add-book");
+const BOOKCONTAINER = document.querySelector(".container-2");
+const MODUAL = document.querySelector("dialog");
+const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
 function Book(title, author, numberOfPages, haveRead) {
     this.title = title;
@@ -33,19 +29,23 @@ function addBookToLibrary(title, author, numberOfPages, haveRead) {
     MYLIBRARY.push(newBook);
 }
 
-for (let i = 0; i < MYLIBRARY.length(); i++) {
+addBookToLibrary("zahi", "zahi", 123, false);
+// addBookToLibrary("zahi", "zahi", 123, false);
+// addBookToLibrary("zahi", "zahi", 123, false);
+// addBookToLibrary("zahi", "zahi", 123, false);
+// addBookToLibrary("zahi", "zahi", 123, false);
+// addBookToLibrary("zahi", "zahi", 123, false);
+
+for (let i = 0; i < MYLIBRARY.length; i++) {
     let book = document.createElement("div")
     book.className = "book ";
     BOOKCONTAINER.appendChild(book);
-
 }
 
-addBookToLibrary("zahi", "ZAHI", 332, true);
+BUTTON.addEventListener("click", () => {
+    MODUAL.showModal();
+});
 
-function displayBook() {
+SUBMITBUTTON.addEventListener("click", () => {
 
-}
-
-function openBookInfoModal() {
-
-}
+})
