@@ -20,20 +20,15 @@ body {
 
 .library-container {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-
-    width: 94vw;
-    margin-top: 4vh;
-
-    background-color:#f19d00d8;
-
+   gap: 1rem;
+   margin-top: 4rem;
 }
 
 .book {
-    height: 46vh;
-    width: 28vw;
 
+    border: 2px solid #f19d00d8;
     background-color: rgb(151, 0, 0);
 
 }

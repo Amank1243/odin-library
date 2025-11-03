@@ -11,7 +11,7 @@ Features:
 const MYLIBRARY = [];
 
 const BUTTON = document.getElementById("add-book");
-const BOOKCONTAINER = document.querySelector(".container-2");
+const BOOKCONTAINER = document.querySelector(".library-container");
 const MODUAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
@@ -21,32 +21,45 @@ function Book(title, author, numberOfPages, haveRead) {
     this.numberOfPages = numberOfPages;
     this.haveRead = haveRead;
 
-    id = crypto.randomUUID();
+    let id = crypto.randomUUID();
 }
 
-function addBookToLibrary(title, author, numberOfPages, haveRead) {
+function addBookToLibrary() {
+    let title = document.getElementById("book").textContent;
+    let author = document.getElementById("author").textContent;
+    let numberOfPages = document.getElementById("pages").textContent;
+    let haveRead = document.querySelector("hasRead");
+
+    console.log("Title: " + title + '\n' + 
+        "Author: " + author + '\n' +
+        "Pages: " + pages + '\n' +
+        "haveRead: " + haveRead + '\n'
+    );
+
     newBook = new Book(title, author, numberOfPages, haveRead)
     MYLIBRARY.push(newBook);
 }
 
-addBookToLibrary("zahi", "zahi", 123, false);
-// addBookToLibrary("zahi", "zahi", 123, false);
-// addBookToLibrary("zahi", "zahi", 123, false);
-// addBookToLibrary("zahi", "zahi", 123, false);
-// addBookToLibrary("zahi", "zahi", 123, false);
-// addBookToLibrary("zahi", "zahi", 123, false);
+
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, false);
+addBookToLibrary("The Power of a Habit", "Charles Duhigg", 416, false);
 
 function displayBook() {
     for (let i = 0; i < MYLIBRARY.length; i++) {
         let book = document.createElement("div")
-        book.className = "book ";
+        book.className = "book";
         BOOKCONTAINER.appendChild(book);
+
+        book.innerText = document.get
     }
 }
+
+displayBook();
+
 BUTTON.addEventListener("click", () => {
     MODUAL.showModal();
 });
 
 SUBMITBUTTON.addEventListener("click", () => {
-
+    addBookToLibrary();
 })
