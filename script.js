@@ -36,12 +36,13 @@ addBookToLibrary("zahi", "zahi", 123, false);
 // addBookToLibrary("zahi", "zahi", 123, false);
 // addBookToLibrary("zahi", "zahi", 123, false);
 
-for (let i = 0; i < MYLIBRARY.length; i++) {
-    let book = document.createElement("div")
-    book.className = "book ";
-    BOOKCONTAINER.appendChild(book);
+function displayBook() {
+    for (let i = 0; i < MYLIBRARY.length; i++) {
+        let book = document.createElement("div")
+        book.className = "book ";
+        BOOKCONTAINER.appendChild(book);
+    }
 }
-
 BUTTON.addEventListener("click", () => {
     MODUAL.showModal();
 });

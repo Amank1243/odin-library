@@ -18,11 +18,10 @@ body {
     background-color: rgb(1, 69, 156);
 }
 
-.container-2 {
+.library-container {
     display: grid;
 
-    justify-self: center;
-    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 
     width: 94vw;
     margin-top: 4vh;
