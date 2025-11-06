@@ -36,25 +36,34 @@ function addBookToLibrary() {
         "haveRead: " + haveRead + '\n'
     );
 
-    newBook = new Book(title, author, numberOfPages, haveRead)
-    MYLIBRARY.push(newBook);
+    let book = new Book(title, author, numberOfPages, haveRead)
+    MYLIBRARY.push(book);  
+}
+
+
+function displayBook() {
+    let firstTime = true;
+    if (firstTime) {
+        for (let i = 0; i < MYLIBRARY.length; i++) {
+            let book = document.createElement("div")
+            book.className = "book";
+            BOOKCONTAINER.appendChild(book);
+
+            book.innerText = document.get
+        }
+
+        firstTime = false;
+    }
+
+    if (!firstTime) {
+        
+    }
 }
 
 
 addBookToLibrary("The Alchemist", "Paulo Coelho", 208, false);
 addBookToLibrary("The Power of a Habit", "Charles Duhigg", 416, false);
 
-function displayBook() {
-    for (let i = 0; i < MYLIBRARY.length; i++) {
-        let book = document.createElement("div")
-        book.className = "book";
-        BOOKCONTAINER.appendChild(book);
-
-        book.innerText = document.get
-    }
-}
-
-displayBook();
 
 BUTTON.addEventListener("click", () => {
     MODUAL.showModal();
@@ -62,4 +71,5 @@ BUTTON.addEventListener("click", () => {
 
 SUBMITBUTTON.addEventListener("click", () => {
     addBookToLibrary();
+    displayBook();
 })
