@@ -56,7 +56,13 @@ function displayBook() {
     }
 
     if (!firstTime) {
-        
+        for (let i = (MYLIBRARY.length - 1); i < MYLIBRARY.length; i++) {
+            let book = document.createElement("div")
+            book.className = "book";
+            BOOKCONTAINER.appendChild(book);
+
+            book.innerText = document.get
+        }
     }
 }
 
