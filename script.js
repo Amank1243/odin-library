@@ -4,13 +4,12 @@ const BOOKCONTAINER = document.querySelector(".library-container");
 const MODUAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
-function Book(title, author, numberOfPages, haveRead) {
+function Book(title, author, numberOfPages, haveRead, id) {
     this.title = title;
     this.author = author;
     this.numberOfPages = numberOfPages;
     this.haveRead = haveRead;
-
-    let id = crypto.randomUUID();
+    this.id = crypto.randomUUID();
 }
 
 let book1 = new Book("The Alchemist", "Paulo Coelho", 208, true);
@@ -61,5 +60,5 @@ BUTTON.addEventListener("click", () => {
 
 SUBMITBUTTON.addEventListener("click", () => {
     addBookToLibrary();
-
-})
+    MODUAL.close();
+});
