@@ -25,18 +25,14 @@ function Book(title, author, numberOfPages, haveRead) {
 }
 
 function addBookToLibrary() {
-    let title = document.getElementById("book").textContent;
-    let author = document.getElementById("author").textContent;
-    let numberOfPages = document.getElementById("pages").textContent;
-    let haveRead = document.querySelector("hasRead");
+    let title = document.getElementById("book").value;
+    let author = document.getElementById("author").value;
+    let numberOfPages = document.getElementById("pages").value;
+    let selectedIndex = document.querySelector("select").selectedIndex;
+    let haveRead = document.querySelector("select").value;
 
-    console.log("Title: " + title + '\n' + 
-        "Author: " + author + '\n' +
-        "Pages: " + pages + '\n' +
-        "haveRead: " + haveRead + '\n'
-    );
-
-    let book = new Book(title, author, numberOfPages, haveRead)
+    let book = new Book(title, author, numberOfPages, haveRead);
+    console.log(book);
     MYLIBRARY.push(book);  
 }
 
@@ -67,15 +63,15 @@ function displayBook() {
 }
 
 
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, false);
-addBookToLibrary("The Power of a Habit", "Charles Duhigg", 416, false);
-
-
+let book1 = new Book("The Alchemist", "Paulo Coelho", 208, true);
+MYLIBRARY.push(book1);
+let book2 = new Book("The Power of a Habit", "Charles Duhigg", 416, true);
+MYLIBRARY.push(book2);
 BUTTON.addEventListener("click", () => {
     MODUAL.showModal();
 });
 
 SUBMITBUTTON.addEventListener("click", () => {
     addBookToLibrary();
-    displayBook();
+
 })
