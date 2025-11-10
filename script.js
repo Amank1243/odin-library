@@ -25,33 +25,19 @@ function addBookToLibrary() {
     let haveRead = document.querySelector("select").value;
 
     let book = new Book(title, author, numberOfPages, haveRead);
-    MYLIBRARY.push(book);  
+    MYLIBRARY.push(book);
+    
+    displayBook();
 }
 
 
 function displayBook() {
-    let firstTime = true;
-    if (firstTime) {
-        for (let i = 0; i < MYLIBRARY.length; i++) {
-            let book = document.createElement("div")
-            book.className = "book";
-            BOOKCONTAINER.appendChild(book);
+   let book = document.querySelector(".book");
 
-            book.innerText = displayBook;
-        }
-
-        firstTime = false;
-    }
-
-    if (!firstTime) {
-        for (let i = (MYLIBRARY.length - 1); i < MYLIBRARY.length; i++) {
-            let book = document.createElement("div")
-            book.className = "book";
-            BOOKCONTAINER.appendChild(book);
-
-            book.innerText = document.get
-        }
-    }
+   for (let i = 0; i < MYLIBRARY.length; i++) {
+    BOOKCONTAINER.appendChild(book);
+    console.log(MYLIBRARY[i]);
+   }
 }
 
 BUTTON.addEventListener("click", () => {
