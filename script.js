@@ -1,7 +1,7 @@
 const MYLIBRARY = [];
 const BUTTON = document.getElementById("add-book");
 const BOOKCONTAINER = document.querySelector(".library-container");
-const MODUAL = document.querySelector("dialog");
+const MODAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
 function Book(title, author, numberOfPages, haveRead, id) {
@@ -30,21 +30,11 @@ function addBookToLibrary() {
     displayBook();
 }
 
-
-function displayBook() {
-   let book = document.querySelector(".book");
-
-   for (let i = 0; i < MYLIBRARY.length; i++) {
-    BOOKCONTAINER.appendChild(book);
-    console.log(MYLIBRARY[i]);
-   }
-}
-
 BUTTON.addEventListener("click", () => {
-    MODUAL.showModal();
+    MODAL.showModal();
 });
 
 SUBMITBUTTON.addEventListener("click", () => {
     addBookToLibrary();
-    MODUAL.close();
+    MODAL.close();
 });

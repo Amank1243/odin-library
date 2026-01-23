@@ -27,10 +27,23 @@ body {
 }
 
 .book {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 
     border: 2px solid #f19d00d8;
     background-color: rgb(151, 0, 0);
 
+}
+
+.book .row {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 1vw;
 }
 
 form {
