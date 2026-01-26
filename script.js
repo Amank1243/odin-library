@@ -1,6 +1,7 @@
 const MYLIBRARY = [];
 const BUTTON = document.getElementById("add-book");
 const BOOKCONTAINER = document.querySelector(".library-container");
+const BOOK = document.querySelector(".book")
 const MODAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
@@ -18,6 +19,15 @@ MYLIBRARY.push(book1);
 let book2 = new Book("The Power of a Habit", "Charles Duhigg", 416, true);
 MYLIBRARY.push(book2);
 
+function displayBook(book) {
+    let newBook = BOOK.cloneNode(true)
+    
+    newBook.querySelector(".row .getBook").textContent = book.title
+
+    BOOKCONTAINER.appendChild(newBook)
+
+}
+
 function addBookToLibrary() {
     let title = document.getElementById("book").value;
     let author = document.getElementById("author").value;
@@ -27,7 +37,7 @@ function addBookToLibrary() {
     let book = new Book(title, author, numberOfPages, haveRead);
     MYLIBRARY.push(book);
     
-    displayBook();
+    displayBook(book);
 }
 
 BUTTON.addEventListener("click", () => {
