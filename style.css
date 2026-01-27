@@ -48,6 +48,23 @@ body {
     font-size: large;
 }
 
+.book button {
+    display: flex;
+    justify-content: center;
+
+   padding: 1em 2em;
+
+    border-radius: 4em;
+    background-color: black;
+
+    font-size: large;
+    font-weight: bolder;
+    color: rgb(151, 0, 0);
+
+
+    margin-bottom: 2em;
+}
+
 form {
     height: 20vh;
     width: 15vw;

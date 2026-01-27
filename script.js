@@ -31,7 +31,6 @@ function displayBook(book) {
     newBook.style.display = ""
 
     BOOKCONTAINER.appendChild(newBook)
-
 }
 
 function addBookToLibrary() {
