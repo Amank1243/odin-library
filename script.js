@@ -4,7 +4,6 @@ const BOOKCONTAINER = document.querySelector(".library-container");
 const BOOK = document.querySelector(".book");
 const MODAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
-const DELETEBUTTON = document.querySelector(".deleteButton");
 
 
 function Book(title, author, numberOfPages, haveRead, id) {
@@ -33,6 +32,14 @@ function displayBook(book) {
     newBook.style.display = "";
     newBook.dataset.id = book.id;
     BOOKCONTAINER.appendChild(newBook);
+
+    let deleteButton = document.createElement("button")
+    deleteButton.textContent = "Delete"
+    newBook.appendChild(deleteButton)
+    
+    deleteButton.addEventListener("click", () => {
+        console.log("Hello");
+    });
 }
 
 function addBookToLibrary() {
@@ -46,10 +53,6 @@ function addBookToLibrary() {
     
     displayBook(book);
 }
-// fix: figure out how to add functionality to cloned buttons
-DELETEBUTTON.addEventListener("click", () => {
-    console.log("I was clicked");
-});
 
 BUTTON.addEventListener("click", () => {
     MODAL.showModal();
