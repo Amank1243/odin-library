@@ -39,13 +39,15 @@ function displayBook(book) {
     
     deleteButton.addEventListener("click", () => {
        console.log(deleteButton.parentElement.dataset.id);
-       
-    for (const book in MYLIBRARY) {
-        console.log(deleteButton.parentElement.dataset.id + " == " + MYLIBRARY[book].id)
-        if (deleteButton.parentElement.dataset.id == MYLIBRARY[book].id) {
-            const toDelete = MYLIBRARY.findIndex(book); // something wrong with this
-            
-            MYLIBRARY.splice(toDelete, 1);
+
+    for (let i = 0; i < MYLIBRARY.length; i++) {
+        const isBook = () => deleteButton.parentElement.dataset.id == MYLIBRARY[i].id
+
+        console.log(deleteButton.parentElement.dataset.id + " == " + MYLIBRARY[i].id)
+
+        if (deleteButton.parentElement.dataset.id == MYLIBRARY[i].id) {
+            deleteButton.parentElement.remove()
+            MYLIBRARY.splice(i, 1);
         }
         }
     });
