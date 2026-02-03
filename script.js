@@ -5,12 +5,20 @@ const BOOK = document.querySelector(".book");
 const MODAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
-
 function Book(title, author, numberOfPages, haveRead, id) {
-    this.title = title;    this.author = author;
+    this.title = title;
+    this.author = author;
     this.numberOfPages = numberOfPages;
     this.haveRead = haveRead;
     this.id = crypto.randomUUID();
+
+    function changeHasRead() {
+        if (this.haveRead == true) {
+            this.haveRead = false;
+        } else if (this.haveRead == false) {
+            this.haveRead = true;
+        }
+    }
 }
 
 let book1 = new Book("The Alchemist", "Paulo Coelho", 208, true);
@@ -33,6 +41,27 @@ function displayBook(book) {
     newBook.dataset.id = book.id;
     BOOKCONTAINER.appendChild(newBook);
 
+     // change read status button
+    let readButton = document.createElement("button");
+    readButton.textContent = "Read?";
+    readButton.class = "changeRead";
+    readButton.style.padding = "0.5em 1em"
+
+    newBook.appendChild(readButton);
+
+    readButton.addEventListener("click", () => {
+        let parentEle = readButton.parentElement;
+
+        for (let i = 0; i < MYLIBRARY.length; i++) {
+           if (readButton.parentElement.dataset.id == MYLIBRARY[i].id) {
+            MYLIBRARY[i].changeHasRead();
+            break;
+        }
+    }
+        
+    })
+
+    // delete button
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     newBook.appendChild(deleteButton);
@@ -41,13 +70,14 @@ function displayBook(book) {
        console.log(deleteButton.parentElement.dataset.id);
 
     for (let i = 0; i < MYLIBRARY.length; i++) {
-        const isBook = () => deleteButton.parentElement.dataset.id == MYLIBRARY[i].id
+        
 
-        console.log(deleteButton.parentElement.dataset.id + " == " + MYLIBRARY[i].id)
+        console.log(deleteButton.parentElement.dataset.id + " == " + MYLIBRARY[i].id);
 
         if (deleteButton.parentElement.dataset.id == MYLIBRARY[i].id) {
-            deleteButton.parentElement.remove()
+            deleteButton.parentElement.remove();
             MYLIBRARY.splice(i, 1);
+
         }
         }
     });
