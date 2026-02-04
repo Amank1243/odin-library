@@ -12,20 +12,20 @@ function Book(title, author, numberOfPages, haveRead, id) {
     this.haveRead = haveRead;
     this.id = crypto.randomUUID();
 
-    function changeHasRead() {
-        if (this.haveRead == true) {
-            this.haveRead = false;
-        } else if (this.haveRead == false) {
-            this.haveRead = true;
+   this.changeHaveRead = function changeHasRead() {
+        if (this.haveRead == "true") {
+            this.haveRead = "false";
+        } else if (this.haveRead == "false") {
+            this.haveRead = "true";
         }
     }
 }
 
-let book1 = new Book("The Alchemist", "Paulo Coelho", 208, true);
+let book1 = new Book("The Alchemist", "Paulo Coelho", "208", "true");
 MYLIBRARY.push(book1);
 displayBook(book1);
 
-let book2 = new Book("The Power of a Habit", "Charles Duhigg", 416, true);
+let book2 = new Book("The Power of a Habit", "Charles Duhigg", "416", "true");
 MYLIBRARY.push(book2);
 displayBook(book2);
 
@@ -56,7 +56,7 @@ function displayBook(book) {
            if (readButton.parentElement.dataset.id == MYLIBRARY[i].id) {
             MYLIBRARY[i].changeHasRead();
             break;
-        }
+        }``
     }
         
     })
