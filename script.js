@@ -12,14 +12,11 @@ function Book(title, author, numberOfPages, haveRead, id) {
     this.haveRead = haveRead;
     this.id = crypto.randomUUID();
 
-   this.changeHaveRead = function changeHasRead() {
-        if (this.haveRead == "true") {
-            this.haveRead = "false";
-        } else if (this.haveRead == "false") {
-            this.haveRead = "true";
-        }
-    }
 }
+
+Book.prototype.toggleRead = function() {
+        this.haveRead = this.haveRead == "true" ? this.haveRead = "false" : this.haveRead = "true"
+    }
 
 let book1 = new Book("The Alchemist", "Paulo Coelho", "208", "true");
 MYLIBRARY.push(book1);
@@ -42,26 +39,32 @@ function displayBook(book) {
     BOOKCONTAINER.appendChild(newBook);
 
      // change read status button
-    let readButton = document.createElement("button");
-    readButton.textContent = "Read?";
-    readButton.class = "changeRead";
-    readButton.style.padding = "0.5em 1em"
 
-    newBook.appendChild(readButton);
+    // let readButton = document.createElement("button");
+    // readButton.textContent = "Read?";
+    // readButton.class = "changeRead";
+    // readButton.style.padding = "0.5em 1em"
+
+    // newBook.appendChild(readButton);
+    let readButton = newBook.querySelector(".changeRead");
 
     readButton.addEventListener("click", () => {
-        let parentEle = readButton.parentElement;
+        const bookElement = readButton.closest(".book");
+        const bookId =  bookElement.dataset.id;
 
-        for (let i = 0; i < MYLIBRARY.length; i++) {
-           if (readButton.parentElement.dataset.id == MYLIBRARY[i].id) {
-            MYLIBRARY[i].changeHasRead();
-            break;
-        }``
-    }
+        const bookObj = MYLIBRARY.find(book => book.id == bookId)
+
+        if (!bookObj) return "Something went wrong when trying to find the book";
+
+        bookObj.toggleRead();
+
+        bookElement.querySelector(".getHasRead").textContent = bookObj.haveRead;
+
         
     })
 
     // delete button
+
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     newBook.appendChild(deleteButton);
@@ -83,6 +86,7 @@ function displayBook(book) {
     });
 }
 
+
 function addBookToLibrary() {
     let title = document.getElementById("book").value;
     let author = document.getElementById("author").value;
@@ -95,11 +99,13 @@ function addBookToLibrary() {
     displayBook(book);
 }
 
+
 BUTTON.addEventListener("click", () => {
     MODAL.showModal();
 });
 
-SUBMITBUTTON.addEventListener("click", () => {
+SUBMITBUTTON.addEventListener("click", (e) => {
+    e.preventDefault();
     addBookToLibrary();
     MODAL.close();
 });
