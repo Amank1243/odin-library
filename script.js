@@ -40,14 +40,6 @@ function displayBook(book) {
     newBook.dataset.id = book.id;
     BOOKCONTAINER.appendChild(newBook);
 
-     // change read status button
-
-    // let readButton = document.createElement("button");
-    // readButton.textContent = "Read?";
-    // readButton.class = "changeRead";
-    // readButton.style.padding = "0.5em 1em"
-
-    // newBook.appendChild(readButton);
     let readButton = newBook.querySelector(".changeRead");
 
     readButton.addEventListener("click", () => {
@@ -69,6 +61,7 @@ function displayBook(book) {
 
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    deleteButton.classList = "delete"
     newBook.appendChild(deleteButton);
     
     deleteButton.addEventListener("click", () => {
