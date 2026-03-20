@@ -14,11 +14,11 @@ class Book {
         this.id = crypto.randomUUID();
     }
 
-}
-
-Book.prototype.toggleRead = function() {
+    toggleRead = function toggleRead() {
         this.haveRead = this.haveRead == "true" ? this.haveRead = "false" : this.haveRead = "true"
     }
+
+}   
 
 let book1 = new Book("The Alchemist", "Paulo Coelho", "208", "true");
 MYLIBRARY.push(book1);
