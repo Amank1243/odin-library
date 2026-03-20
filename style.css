@@ -41,6 +41,10 @@ body {
     border-radius: 0.9em;
 }
 
+.library-container:has(:only-child) {
+    border:none;
+}
+
 .book {
     display: flex;
 
