@@ -5,12 +5,14 @@ const BOOK = document.querySelector(".book");
 const MODAL = document.querySelector("dialog");
 const SUBMITBUTTON = document.querySelector(".dialog-submit-button");
 
-function Book(title, author, numberOfPages, haveRead, id) {
-    this.title = title;
-    this.author = author;
-    this.numberOfPages = numberOfPages;
-    this.haveRead = haveRead;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(title, author, numberOfPages, haveRead, id) {
+        this.title = title;
+        this.author = author;
+        this.numberOfPages = numberOfPages;
+        this.haveRead = haveRead;
+        this.id = crypto.randomUUID();
+    }
 
 }
 
